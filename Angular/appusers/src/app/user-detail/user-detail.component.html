@@ -1,0 +1,16 @@
+<button (click)="onBackButtonClicked()">Back</button>
+
+<div *ngIf="user">
+    <h2>{{user.name}}</h2> Details:
+    <div>
+        <span>User Id: </span> {{user.id}}
+    </div>
+    <div>
+        <label>Hero name:</label>
+        <input id="user-name" [(ngModel)]="user.name" placeholder="name">
+    </div>
+
+    <button (click)="SaveUser()"> Save User</button>
+    <label>this is a change</label>
+
+</div>

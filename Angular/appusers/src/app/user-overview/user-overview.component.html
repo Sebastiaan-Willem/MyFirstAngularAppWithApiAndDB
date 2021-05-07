@@ -1,0 +1,16 @@
+<h2>User Overview</h2>
+
+<div>
+    <label>User Name:</label>
+    <input type="text" #username/>
+    <button (click)="addUser(username.value); username.value=''">Add User</button>
+</div>
+
+<ul>
+    <li *ngFor="let user of users">
+        <a routerLink="/userdetail/{{user.id}}">
+            <span>{{user.id}}</span> {{user.name}}
+        </a>
+        <button title="delete user" (click)="deleteUser(user)">X</button>
+    </li>
+</ul>
