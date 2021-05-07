@@ -31,5 +31,22 @@ namespace MyFirstAPI.Controllers
             }
             return await _service.RegisterAsync(dto.Name, dto.Password);
         }
+
+        [HttpPost("Login")]
+        public async Task<ActionResult<AppUser>> LoginAsync(LoginDTO dto)
+        {
+            try
+            {
+                AppUser user = await _service.LoginAsync(dto.Name, dto.Password);
+
+                return user;
+            }
+            catch (UnauthorizedAccessException e)
+            {
+
+                return Unauthorized(e.Message);
+            }
+            
+        }
     }
 }
