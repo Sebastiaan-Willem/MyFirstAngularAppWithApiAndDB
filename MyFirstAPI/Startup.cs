@@ -45,6 +45,7 @@ namespace MyFirstAPI
 
             //Dependancy Injection Configuration
             services.AddTransient<IAppUserService, AppUserService>();
+            services.AddTransient<IAccountService, AccountService>();
 
         }
 
