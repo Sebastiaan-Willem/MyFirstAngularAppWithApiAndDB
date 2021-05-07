@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -14,7 +15,7 @@ namespace MyFirstAPI.Services
         {
             _context = appContext;
         }
-        public async Task<AppUser> Register(string username, string password)
+        public async Task<AppUser> RegisterAsync(string username, string password)
         {
             //HMACSHA512 -> built in library to encrypt data (for our passwords in this case)
             using var hmac = new HMACSHA512();
@@ -22,7 +23,7 @@ namespace MyFirstAPI.Services
 
             var user = new AppUser
             {
-                Name = username,
+                Name = username.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
                 PasswordSalt = hmac.Key,
             };
@@ -32,6 +33,11 @@ namespace MyFirstAPI.Services
             await _context.SaveChangesAsync();
 
             return user;
+        }
+
+        public async Task<bool> UserExists(string userName)
+        {
+            return await _context.Users.AnyAsync(x => x.Name == userName.ToLower());
         }
     }
 }
