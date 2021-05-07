@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//forms module for 2way binding
+
+//forms module (for 2way binding)
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,13 +12,15 @@ import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 
 //Provides communication between Angular and API
 import {HttpClientModule} from '@angular/common/http';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserOverviewComponent,
     UserDetailComponent,
-    UserHomepageComponent
+    UserHomepageComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
