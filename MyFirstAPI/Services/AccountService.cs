@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyFirstAPI.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,5 +74,6 @@ namespace MyFirstAPI.Services
         {
             return await _context.Users.AnyAsync(x => x.Name == userName.ToLower());
         }
+
     }
 }

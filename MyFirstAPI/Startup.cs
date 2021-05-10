@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MyFirstAPI.Helpers;
 using MyFirstAPI.Services;
 using System;
 using System.Collections.Generic;
@@ -43,9 +44,12 @@ namespace MyFirstAPI
                 x.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
             });
 
+            //register Automapper (as a service)
+            services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
+            
             //Dependancy Injection Configuration
-            services.AddTransient<IAppUserService, AppUserService>();
-            services.AddTransient<IAccountService, AccountService>();
+            services.AddScoped<IAppUserService, AppUserService>();
+            services.AddScoped<IAccountService, AccountService>();
 
         }
 
