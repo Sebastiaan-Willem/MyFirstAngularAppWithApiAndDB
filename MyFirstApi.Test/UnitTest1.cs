@@ -33,7 +33,7 @@ namespace MyFirstApi.Test
 
             AppUser fakeUser = new AppUser
             {
-                City = "faketown",
+                CityofOrigin = "faketown",
                 Gender = "fake",
                 Name = "Fakey McFaker",
                 Interests = "none",
