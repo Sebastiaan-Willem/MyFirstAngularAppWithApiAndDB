@@ -13,6 +13,8 @@ namespace MyFirstAPI.Helpers
         {
             //Turn A -> B
             CreateMap<AppUser, MemberDTO>();
+
+                
         }
     }
 }

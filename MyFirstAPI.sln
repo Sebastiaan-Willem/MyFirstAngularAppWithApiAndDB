@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstAPI", "MyFirstAPI\MyFirstAPI.csproj", "{DB26A8F5-C5AB-49C7-B2DD-0A36EC7FE02E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFirstAPI", "MyFirstAPI\MyFirstAPI.csproj", "{DB26A8F5-C5AB-49C7-B2DD-0A36EC7FE02E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstApi.Test", "MyFirstApi.Test\MyFirstApi.Test.csproj", "{1D0BF52A-F26F-42BD-A083-771FAB3D8EEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DB26A8F5-C5AB-49C7-B2DD-0A36EC7FE02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB26A8F5-C5AB-49C7-B2DD-0A36EC7FE02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB26A8F5-C5AB-49C7-B2DD-0A36EC7FE02E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D0BF52A-F26F-42BD-A083-771FAB3D8EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D0BF52A-F26F-42BD-A083-771FAB3D8EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D0BF52A-F26F-42BD-A083-771FAB3D8EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D0BF52A-F26F-42BD-A083-771FAB3D8EEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
