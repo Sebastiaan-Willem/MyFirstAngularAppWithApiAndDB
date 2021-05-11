@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyFirstAPI.DTO;
 using MyFirstAPI.Services;
 using System;
@@ -10,6 +11,7 @@ namespace MyFirstAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class UsersController: ControllerBase
     {
         private IAppUserService _service;
@@ -21,6 +23,7 @@ namespace MyFirstAPI.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<AppUser>> GetAsync()
         {
             return await _service.GetUsers();
