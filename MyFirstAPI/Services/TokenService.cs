@@ -26,6 +26,9 @@ namespace MyFirstAPI.Services
         {
             _key = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(config["TokenKey"]));
+            //TokenKey -> custom string that will be used to encrypt and decrypt the tokens
+            //defined in appsettings.json
+            
         }
 
         public string CreateToken(AppUser user)

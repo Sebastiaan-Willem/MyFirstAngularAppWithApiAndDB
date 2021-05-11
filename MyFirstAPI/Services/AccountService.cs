@@ -12,14 +12,17 @@ namespace MyFirstAPI.Services
     public class AccountService : IAccountService
     {
         private AppContext _context;
-        public AccountService(AppContext appContext)
+        private ITokenService _tokenService;
+
+        public AccountService(AppContext appContext, ITokenService tokenService)
         {
             _context = appContext;
+            _tokenService = tokenService;
         }
 
         
 
-        public async Task<AppUser> RegisterAsync(string username, string password)
+        public async Task<UserDTO> RegisterAsync(string username, string password)
         {
             //HMACSHA512 -> built in library to encrypt data (for our passwords in this case)
             using var hmac = new HMACSHA512();
@@ -36,10 +39,15 @@ namespace MyFirstAPI.Services
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return user;
+            //Including Token will allow users access to restricted methods without having to re-authenticate
+            return new UserDTO
+            {
+                UserName = user.Name,
+                Token = _tokenService.CreateToken(user)
+            };
         }
 
-        public async Task<AppUser> LoginAsync(string name, string password)
+        public async Task<UserDTO> LoginAsync(string name, string password)
         {
             //SingleorDefault -> will throw error when it finds more than one instance.
             //(Default will turn it into null when it can't find any, like with FirstorDefault)
@@ -64,10 +72,15 @@ namespace MyFirstAPI.Services
                 }
             }
 
-            
+
 
             //will only return the user if it passes both if checks above.
-            return user;
+            //Including Token will allow users access to restricted methods without having to re-authenticate
+            return new UserDTO
+            {
+                UserName = user.Name,
+                Token = _tokenService.CreateToken(user)
+            };
         }
 
         public async Task<bool> UserExists(string userName)

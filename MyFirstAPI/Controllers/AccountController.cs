@@ -22,7 +22,7 @@ namespace MyFirstAPI.Controllers
 
         //ActionResult -> returns the status of the operation (ex: action failed/succeeded)
         [HttpPost("Register")]
-        public async Task<ActionResult<AppUser>> Register(RegisterDTO dto)
+        public async Task<ActionResult<UserDTO>> Register(RegisterDTO dto)
         {
             if (await _service.UserExists(dto.Name))
             {
@@ -33,11 +33,11 @@ namespace MyFirstAPI.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<ActionResult<AppUser>> LoginAsync(LoginDTO dto)
+        public async Task<ActionResult<UserDTO>> LoginAsync(LoginDTO dto)
         {
             try
             {
-                AppUser user = await _service.LoginAsync(dto.Name, dto.Password);
+                UserDTO user = await _service.LoginAsync(dto.Name, dto.Password);
 
                 return user;
             }

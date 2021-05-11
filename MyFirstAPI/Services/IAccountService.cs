@@ -5,9 +5,9 @@ namespace MyFirstAPI.Services
 {
     public interface IAccountService
     {
-        Task<AppUser> RegisterAsync(string username, string password);
+        Task<UserDTO> RegisterAsync(string username, string password);
         Task<bool> UserExists(string name);
-        Task<AppUser> LoginAsync(string name, string password);
+        Task<UserDTO> LoginAsync(string name, string password);
         
     }
 }
