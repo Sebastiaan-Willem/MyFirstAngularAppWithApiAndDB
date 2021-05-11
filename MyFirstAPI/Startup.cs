@@ -52,6 +52,7 @@ namespace MyFirstAPI
             services.AddScoped<IAppUserService, AppUserService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAppUserRepository, AppUserRepository>();
+            services.AddScoped<ITokenService, TokenService>();
 
         }
 

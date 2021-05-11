@@ -34,7 +34,6 @@ namespace MyFirstAPI.Services
         {
             await _repo.AddUser(user);
         }
-
         public async Task UpdateUser(AppUser user)
         {
             await _repo.UpdateUser(user);
