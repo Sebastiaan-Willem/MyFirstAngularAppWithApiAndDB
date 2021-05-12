@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 //forms module (for 2way binding)
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import {HttpClientModule} from '@angular/common/http';
 import { NavigationComponent } from './navigation/navigation.component';
 import { MembersComponent } from './members/members.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,13 @@ import { MembersComponent } from './members/members.component';
     UserDetailComponent,
     UserHomepageComponent,
     NavigationComponent,
-    MembersComponent
+    MembersComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

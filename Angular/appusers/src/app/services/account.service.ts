@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../User';
 import {map} from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,8 @@ export class AccountService {
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   // };
+
+  
 
   login(model: any): Observable<any>{
     var url = `${this.baseUrl}/login`;
