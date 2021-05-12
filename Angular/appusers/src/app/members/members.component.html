@@ -1,8 +1,9 @@
 <div class="marginstuff">
-    <h2>Members</h2>
+    <h2>Members:</h2>
+    <hr>
 
     <div *ngFor="let member of members">
-        <h4> {{member.name}}</h4>
+        <h4> {{member.name | titlecase}}</h4>
         <p>{{member.city}}</p>
         <img src="{{member.profilePicture}}"/>
     </div>
