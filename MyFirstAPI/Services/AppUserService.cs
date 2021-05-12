@@ -53,5 +53,17 @@ namespace MyFirstAPI.Services
             MemberDTO member = _mapper.Map<MemberDTO>(user);
             return member;
         }
+
+        public async Task<ICollection<MemberDTO>> GetMembersAsync()
+        {
+            List<AppUser> users = await _repo.GetUsers();
+
+            //automapper can just as easily map a list as a single object
+            List<MemberDTO> members = _mapper.Map<List<MemberDTO>>(users);
+
+            return members;
+
+
+        }
     }
 }

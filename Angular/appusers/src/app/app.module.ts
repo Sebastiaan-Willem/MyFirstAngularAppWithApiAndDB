@@ -13,6 +13,7 @@ import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 //Provides communication between Angular and API
 import {HttpClientModule} from '@angular/common/http';
 import { NavigationComponent } from './navigation/navigation.component';
+import { MembersComponent } from './members/members.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     UserOverviewComponent,
     UserDetailComponent,
     UserHomepageComponent,
-    NavigationComponent
+    NavigationComponent,
+    MembersComponent
   ],
   imports: [
     BrowserModule,

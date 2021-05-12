@@ -12,5 +12,6 @@ namespace MyFirstAPI.Services
         Task<List<AppUser>> GetUsers();
         Task UpdateUser(AppUser user);
         Task<MemberDTO> GetMemberAsync(int id);
+        Task<ICollection<MemberDTO>> GetMembersAsync();
     }
 }

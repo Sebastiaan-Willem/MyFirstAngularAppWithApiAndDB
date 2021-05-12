@@ -34,9 +34,10 @@ namespace MyFirstAPI.Controllers
             return await _service.GetUser(id);
         }
         [HttpPost]
-        public async Task PostAsync(AppUser user)
+        public async Task<ActionResult> PostAsync(AppUser user)
         {
             await _service.AddUser(user);
+            return Created("", null);
         }
         [HttpPut]
         public async Task PutAsync(AppUser user)
@@ -48,11 +49,17 @@ namespace MyFirstAPI.Controllers
         {
             await _service.DeleteUser(id);
         }
-        [HttpGet("Member")]
+        [HttpGet("Members/{id}")]
         public async Task<ActionResult<MemberDTO>> GetMemberAsync(int id)
         {
             MemberDTO member = await _service.GetMemberAsync(id);
-            return member;
+            return Ok(member);
+        }
+        [HttpGet("Members")]
+        public async Task<ActionResult<ICollection<MemberDTO>>> GetMembersAsync()
+        {
+            ICollection<MemberDTO> member = await _service.GetMembersAsync();
+            return Ok(member);
         }
     }
 }

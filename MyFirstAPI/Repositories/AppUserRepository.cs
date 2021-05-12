@@ -17,11 +17,15 @@ namespace MyFirstAPI.Repositories
 
         public async Task<List<AppUser>> GetUsers()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users
+                .Include(x => x.Photos)
+                .ToListAsync();
         }
         public async Task<AppUser> GetUser(int id)
         {
-            return await _context.Users.FindAsync(id);
+            return await _context.Users
+                .Include(x => x.Photos)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task AddUser(AppUser user)
